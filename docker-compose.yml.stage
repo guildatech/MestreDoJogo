@@ -1,0 +1,31 @@
+version: '3'
+
+networks:
+  reverse-proxy:
+    external:
+      name: reverse-proxy
+
+services:
+  bot.falatu.dev-app:
+    image: webdevops/php-apache-dev:7.3
+#    build:
+#      dockerfile: ./.docker/app/Dockerfile
+#      context: .
+    container_name: bot.falatu.dev-app
+    restart: always
+    networks:
+      - reverse-proxy
+    volumes:
+      - .:/var/www/app
+    environment:
+      - VIRTUAL_HOST=bot.falatu.dev
+      - WEB_DOCUMENT_ROOT="/var/www/app/public"
+#      - LETSENCRYPT_EMAIL=certificate@bot.falatu.dev
+#      - LETSENCRYPT_HOST=bot.falatu.dev
+#      - PHP_DEBUGGER="xdebug"
+#      export XDEBUG_REMOTE_HOST=$(ifconfig wlan0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
+#      - XDEBUG_REMOTE_HOST=${XDEBUG_REMOTE_HOST}
+#      - XDEBUG_REMOTE_AUTOSTART=1
+#    expose:
+#      - 9000
+
