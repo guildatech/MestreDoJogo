@@ -20,6 +20,6 @@ services:
     volumes:
       - .:/app
     environment:
-      - VIRTUAL_HOST=bot-captcha.falatu.dev
-      - LETSENCRYPT_HOST=bot-captcha.falatu.dev
+      - VIRTUAL_HOST=bot.falatu.dev
+      - LETSENCRYPT_HOST=bot.falatu.dev
       - LETSENCRYPT_EMAIL=wilcorrea@gmail.com
