@@ -1,3 +1,6 @@
+# IDEs e editores
+.idea/
+
 # Logs
 logs
 *.log
