@@ -1,5 +1,6 @@
 const { Markup } = require('telegraf')
 const lang = require('../lang')
+const mute = require('./mute')
 
 /**
  * @param ctx
@@ -10,17 +11,7 @@ const new_chat_members = (ctx) => {
     return
   }
 
-  const user = get(ctx, 'update.message.new_chat_member.id')
-  const extra = {
-    can_send_messages: false,
-    can_add_web_page_previews: false,
-    can_send_other_messages: false,
-    can_send_media_messages: false
-  }
-
-  // noinspection JSUnresolvedFunction
-  ctx.telegram.callApi('restrictChatMember', Object.assign({ chat_id: ctx.chat.id, user_id: user }, extra))
-    .catch((error) => console.log(error))
+  mute(ctx.telegram, ctx.chat.id, get(ctx, 'update.message.new_chat_member.id'))
 
   return ctx.reply(
     lang('welcome'),

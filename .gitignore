@@ -65,3 +65,6 @@ typings/
 
 # docker
 docker-compose.yml
+
+# JSON file
+restricted.json
