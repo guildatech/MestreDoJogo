@@ -1,3 +1,6 @@
+# IDEs e editores
+.idea/
+
 # Logs
 logs
 *.log
@@ -59,3 +62,9 @@ typings/
 
 # next.js build output
 .next
+
+# docker
+docker-compose.yml
+
+# JSON file
+restricted.json
