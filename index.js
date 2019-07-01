@@ -2,7 +2,6 @@ require('dotenv').config()
 const TelegramBot = require('telegraf')
 
 const lang = require('./src/lang')
-const get = require('./src/util/general').get
 const callback_query = require('./src/actions/callback_query')
 const new_chat_members = require('./src/actions/new_chat_members')
 
